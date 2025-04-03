@@ -22,11 +22,11 @@ services:
  ping:
   build: .
 volumes:
- web-files: {}
+ web-file: {}
  db-file: {}
 networks:
  front-web:
   driver: bridge
-   ipam:
-    config:
-     - subnet: 172.20.0.0/24
+  ipam:
+   config:
+    - subnet: 172.20.0.0/24
