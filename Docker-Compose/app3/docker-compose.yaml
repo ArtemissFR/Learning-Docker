@@ -7,6 +7,8 @@ services:
    - 8000:80
   volumes:
    - web-file:/usr/share/nginx/html
+  networks:
+   - front-web
  db:
   image: mysql
   ports:
@@ -15,8 +17,16 @@ services:
    - db-file:/var/lib/mysql
   environment:
    - MYSQL_ROOT_PASSWORD=root
+  networks:
+   - front-web
  ping:
   build: .
 volumes:
  web-files: {}
  db-file: {}
+networks:
+ front-web:
+  driver: bridge
+   ipam:
+    config:
+     - subnet: 172.20.0.0/24
