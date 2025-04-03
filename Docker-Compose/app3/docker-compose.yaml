@@ -1,22 +1,22 @@
-#version: '2'
+version: '2'
 
-#services:
+services:
  web:
   image: nginx
   ports:
    - 8000:80
-  #volumes:
-  # - web-file:/usr/share/nginx/html
+  volumes:
+   - web-file:/usr/share/nginx/html
  db:
   image: mysql
   ports:
    - 3306:3306
- # volumes:
- #  - db-file:/var/lib/mysql
+  volumes:
+   - db-file:/var/lib/mysql
   environment:
    - MYSQL_ROOT_PASSWORD=root
  ping:
   build: .
-#volumes:
-# web-files: {}
-# db-file: {}
+volumes:
+ web-files: {}
+ db-file: {}
